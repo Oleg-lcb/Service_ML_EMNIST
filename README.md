@@ -38,7 +38,7 @@
 git clone https://github.com/Oleg-lcb/Service_ML_EMNIST/
 
 Далее необходимо перейти в корневую директорию проекта:
-cd practice/
+cd <your_repo_name>
 
 Затем требуется построить докер-образ согласно Dockerfile из проекта:
 "Имя образа и другие параметры запуска можно указать самостоятельно или воспользоваться стандартной формой ".""
@@ -52,7 +52,7 @@ docker run <parameters>
 
 ```bash
 git clone https://github.com/Oleg-lcb/Service_ML_EMNIST
-cd practice/
+cd <your_repo_name>
 docker built <parameters>
 docker run <parameters>
 ```
