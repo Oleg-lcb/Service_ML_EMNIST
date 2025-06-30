@@ -23,7 +23,14 @@ def predict(image: str = Body(..., description='image pixels list')):
     image = image.reshape(1,784)
     image_df = pd.DataFrame(data=image, index=None)
     pred = model.predict(image_df)
-    return {'prediction': pred}
+
+    with open('emnist-balanced-mapping.txt', 'r') as file_code:
+        code_char = dict()
+        for line in file_code:
+            if int(line.strip('\n').split(' ')[0]) not in code_char.keys():
+                code_char[int(line.strip('\n').split(' ')[0])] = chr(int(line.strip('\n').split(' ')[1]))
+
+    return {'prediction': code_char[int(pred[1:-1])]}
 
 # static files
 app.mount('/', StaticFiles(directory='static', html=True), name='static')

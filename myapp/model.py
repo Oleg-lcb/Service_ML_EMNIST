@@ -30,7 +30,6 @@ class Model:
         '''
         # your code here
         # Make predictions
-        print(x.shape)
         predictions = self.model.predict(x)
 
         # Return the first prediction as a character
